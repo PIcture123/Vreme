@@ -1,0 +1,30 @@
+{
+  "name": "vreme",
+  "version": "1.0.0",
+  "description": "This app is to see how long The Gadove are on their's PCs",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongodb": "^2.2.33",
+    "socket.io": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PIcture123/Vreme.git"
+  },
+  "keywords": [
+    "node",
+    "server.js"
+  ],
+  "author": "Valeri Ivanchev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PIcture123/Vreme/issues"
+  },
+  "homepage": "https://github.com/PIcture123/Vreme#readme"
+}
