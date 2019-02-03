@@ -1,0 +1,17 @@
+table,th{
+  border: 1px solid black;
+    padding: 30px 35px;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+body{
+  background-color:#fc6900;
+}
+#Time{
+  background-color: #007849;
+  color:white;
+}
+#Name{
+  background-color: #4ABDAC;
+  color: white;
+}
