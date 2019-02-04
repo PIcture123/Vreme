@@ -6,7 +6,10 @@ var data={
 };
 var minutes = 30;
 var HasAccount = false;
+var clicked = false;
 function ClickedStart(){
+if(!clicked){
+    clicked = true;
 var name = document.getElementById('name').value;
 socket.emit("Find",name);
 socket.on('Found',function(docs){
@@ -25,28 +28,30 @@ socket.on('Found',function(docs){
         startTimer();
 
         function startTimer() {
-        var presentTime = document.getElementById('Time').innerHTML;
-        var timeArray = presentTime.split(/[:]+/);
-        var m = timeArray[0];
-        if(Stop && !HasAccount){
-            data.name = name;
-            data.minutes = 30 - m;
-            socket.emit('Stop',data);
-            location.replace('/');
-        }
-        if(Stop && HasAccount){
-            data.name = name;
-            data.minutes = 30 - m;
-            socket.emit('Stop2',data);
-            location.replace('/');
-        }
-        
-        var s = checkSecond((timeArray[1] - 1));
-        if(s==59){m=m-1}
-        document.getElementById('Time').innerHTML =
-            m + ":" + s;
             
-            setTimeout(startTimer, 1000);
+                var presentTime = document.getElementById('Time').innerHTML;
+                var timeArray = presentTime.split(/[:]+/);
+                var m = timeArray[0];
+                if(Stop && !HasAccount){
+                    data.name = name;
+                    data.minutes = 30 - m;
+                    socket.emit('Stop',data);
+                    location.replace('/');
+                }
+                if(Stop && HasAccount){
+                    data.name = name;
+                    data.minutes = 30 - m;
+                    socket.emit('Stop2',data);
+                    location.replace('/');
+                }
+                
+                var s = checkSecond((timeArray[1] - 1));
+                if(s==59){m=m-1}
+                document.getElementById('Time').innerHTML =
+                    m + ":" + s;
+                    
+                    setTimeout(startTimer, 1000);
+                
         }
 
         function checkSecond(sec) {
@@ -58,6 +63,7 @@ socket.on('Found',function(docs){
       
         console.log(docs);
     });
+}
 }
 function ClickedStop(){
     Stop = true;
